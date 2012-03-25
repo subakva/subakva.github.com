@@ -5,15 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Subakva Teknika</title>
+  <title>Clone My Fields, Please - Subakva Teknika</title>
   <meta name="author" content="Jason Wadsworth">
 
   
-  <meta name="description" content="Blog Archive 2008 Only in Python&#8230;
-Sep 14 2008 More Drafts Than Posts
-Jun 02 2008 Clone My Fields, Please
-Feb 26 2008 Hobnobbing in Boston
-Jan &hellip;">
+  <meta name="description" content="The Introduction I recently started using the SearchManager from the Mercury Tide white paper on using MySQL full-text search with Django. It&#8217;s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +18,7 @@ Jan &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://subakva.github.com/blog/archives">
+  <link rel="canonical" href="http://subakva.github.com/blog/2008/02/26/clone-my-fields-please">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -65,74 +61,121 @@ Jan &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Clone My Fields, Please</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-26T23:50:59-05:00" pubdate data-updated="true">Feb 26<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><h3>The Introduction</h3>
 
-  
-  <h2>2008</h2>
+<p>I recently started using the SearchManager from <a href="http://www.mercurytide.co.uk/whitepapers/django-full-text-search/">the Mercury Tide white paper</a> on using <a href="http://dev.mysql.com/doc/refman/5.0/en/fulltext-search.html">MySQL full-text search</a> with <a href="http://www.djangoproject.com/">Django</a>. It&#8217;s been helpful, but I ran into a bug recently while trying to add a default filter to a SearchManager subclass.</p>
 
-<article>
-  
-<h1><a href="/blog/2008/09/14/only-in-python/">Only in Python&#8230;</a></h1>
-<time datetime="2008-09-14T23:33:41-04:00" pubdate><span class='month'>Sep</span> <span class='day'>14</span> <span class='year'>2008</span></time>
+<h3>The Boring Context</h3>
 
+<p>Rather than deleting objects from the database, my application sets a boolean flag to indicate that the content is not longer relevant. I wanted my manager to apply a filter to every query set to include only items that are not disabled. Here&#8217;s what the manager class looks like:</p>
 
-</article>
+<pre><code>class SearchableItemManager(SearchMangager):
+    def __init__(self):
+        zuper = super(SearchableItemManager, self)
+        zuper.__init__(('name','description',))
 
+    def get_query_set(self):
+        query = super(SearchableItemManager, self).get_query_set()
+        return query.filter(is_enabled=True)
+</code></pre>
 
+<h3>The Ugly Crash</h3>
 
-<article>
-  
-<h1><a href="/blog/2008/06/02/more-drafts-than-posts/">More Drafts Than Posts</a></h1>
-<time datetime="2008-06-02T00:29:55-04:00" pubdate><span class='month'>Jun</span> <span class='day'>02</span> <span class='year'>2008</span></time>
+<p>When I made the change, I found that calling the <code>search()</code> method raised a TypeError: &#8220;&#8216;NoneType&#8217; object is not iterable.&#8221; The error occurred when the SearchQuerySet tried to construct the SQL for the MATCH&#8230;AGAINST clause. Somehow, the <code>_search_fields</code> tuple on the SearchQuerySet was None.</p>
 
+<h3>The Mystery Solved</h3>
 
-</article>
+<p>This had me baffled until I had a look at the <em>QuerySet code in Django. It seems obvious now, but adding an additional filter to a query set returns a clone of the original with the new filter added. The </em>QuerySet object contains a <code>_clone</code> method that copies a hard-coded list of fields from the old QS to the new one. Naturally, that hard-coded list doesn&#8217;t know anything about my <code>_search_fields</code>, so the property has no value on the clone.</p>
 
+<h3>The Fix</h3>
 
+<p>Now, depending on how much of a zealot you are about modifying &#8220;private&#8221; functions, there are two ways to fix this. The easiest method is to simply override the <code>_clone</code> method and add the <code>_search_fields</code> tuple to the clone. The alternative is to override every method that depends on the _clone method, and copy over the <code>_search_fields</code> tuple for each one. I think that would be stupid, and will speak of it no further. Here&#8217;s the code I added to generate happiness:</p>
 
-<article>
-  
-<h1><a href="/blog/2008/02/26/clone-my-fields-please/">Clone My Fields, Please</a></h1>
-<time datetime="2008-02-26T23:50:59-05:00" pubdate><span class='month'>Feb</span> <span class='day'>26</span> <span class='year'>2008</span></time>
+<pre><code>class SearchQuerySet(models.query.QuerySet):
+    # ... code from the original Mercury Tide class
+    def _clone(self, klass=None, **kwargs):
+        zuper = super(SearchQuerySet, self)
+        clone = zuper._clone(klass, **kwargs)
+        clone._search_fields = self._search_fields
+        return clone
+</code></pre>
 
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2008/01/11/hobnobbing-in-boston/">Hobnobbing in Boston</a></h1>
-<time datetime="2008-01-11T17:33:56-05:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2008</span></time>
-
-
-</article>
-
-
-
-  
-  <h2>2007</h2>
-
-<article>
-  
-<h1><a href="/blog/2007/12/21/beginnings/">&#8220;I am seated in an office, surrounded by heads and bodies,&#8221; and Other Great Beginnings</a></h1>
-<time datetime="2007-12-21T17:28:16-05:00" pubdate><span class='month'>Dec</span> <span class='day'>21</span> <span class='year'>2007</span></time>
-
-
-</article>
-
+<p>  *[QS]: Query Set</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Jason Wadsworth</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-26T23:50:59-05:00" pubdate data-updated="true">Feb 26<span>th</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://subakva.github.com/blog/2008/02/26/clone-my-fields-please/" data-via="subakva" data-counturl="http://subakva.github.com/blog/2008/02/26/clone-my-fields-please/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/01/11/hobnobbing-in-boston/" title="Previous Post: Hobnobbing in Boston">&laquo; Hobnobbing in Boston</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/06/02/more-drafts-than-posts/" title="Next Post: More Drafts Than Posts">More Drafts Than Posts &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
 </div>

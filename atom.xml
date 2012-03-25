@@ -4,7 +4,7 @@
   <title><![CDATA[Subakva Teknika]]></title>
   <link href="http://subakva.github.com/atom.xml" rel="self"/>
   <link href="http://subakva.github.com/"/>
-  <updated>2012-03-11T15:05:58-04:00</updated>
+  <updated>2012-03-25T15:04:48-04:00</updated>
   <id>http://subakva.github.com/</id>
   <author>
     <name><![CDATA[Jason Wadsworth]]></name>
@@ -12,5 +12,146 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Only in Python...]]></title>
+    <link href="http://subakva.github.com/blog/2008/09/14/only-in-python/"/>
+    <updated>2008-09-14T23:33:41-04:00</updated>
+    <id>http://subakva.github.com/blog/2008/09/14/only-in-python</id>
+    <content type="html"><![CDATA[<p>I just <a href="http://docs.python.org/lib/bltin-file-objects.html">imported code from the <strong>future</strong></a>. That <a href="http://xkcd.com/353/">famous XKCD comic</a> is a lot closer to reality than you might have thought.</p>
+
+<p><code>from __future__ import with_statement</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[More Drafts Than Posts]]></title>
+    <link href="http://subakva.github.com/blog/2008/06/02/more-drafts-than-posts/"/>
+    <updated>2008-06-02T00:29:55-04:00</updated>
+    <id>http://subakva.github.com/blog/2008/06/02/more-drafts-than-posts</id>
+    <content type="html"><![CDATA[<p>As I write this, this blog system contains 3 published posts and 8 drafts. If you were to try to infer my level of engagement with technology from the activity on this blog, you might think I&#8217;ve given up and started selling used cars. For better or worse, that&#8217;s not the case.</p>
+
+<p>Here are some things that I coulda/shoulda blogged about since I last posted in January:</p>
+
+<ul>
+<li><p>Tagging Dreams with Django</p></li>
+<li><p>Plotting the Future of Crosscheck</p></li>
+<li><p>New Gig: Second Rotation</p></li>
+<li><p>From Django to Rails (and Back)</p></li>
+<li><p>Encapsulating a Django Project</p></li>
+<li><p>Auditable Django Models</p></li>
+<li><p>Simplify Wordpress Upgrades With Subversion</p></li>
+<li><p>The AppEngine Experience</p></li>
+<li><p>Building Web Apps on the T</p></li>
+<li><p>A Brief History of Freestyle</p></li>
+<li><p>Building Your Own Blog: Awesome or Chumpy?</p></li>
+<li><p>Boston BarCamp 2008</p></li>
+</ul>
+
+
+<p>I&#8217;m a bad, bad blogger. This list doesn&#8217;t include any of the drafts that I actually began to write. But, as I look at this list, there&#8217;s a lot of interesting stuff here. I suspect that if I actually make myself write about the things that I&#8217;m thinking and working on, it will help motivate me to finish some of my projects. If I&#8217;m lucky, a few people might even read it, which will motivate me even more. Is this how life works for extroverts?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Clone My Fields, Please]]></title>
+    <link href="http://subakva.github.com/blog/2008/02/26/clone-my-fields-please/"/>
+    <updated>2008-02-26T23:50:59-05:00</updated>
+    <id>http://subakva.github.com/blog/2008/02/26/clone-my-fields-please</id>
+    <content type="html"><![CDATA[<h3>The Introduction</h3>
+
+<p>I recently started using the SearchManager from <a href="http://www.mercurytide.co.uk/whitepapers/django-full-text-search/">the Mercury Tide white paper</a> on using <a href="http://dev.mysql.com/doc/refman/5.0/en/fulltext-search.html">MySQL full-text search</a> with <a href="http://www.djangoproject.com/">Django</a>. It&#8217;s been helpful, but I ran into a bug recently while trying to add a default filter to a SearchManager subclass.</p>
+
+<h3>The Boring Context</h3>
+
+<p>Rather than deleting objects from the database, my application sets a boolean flag to indicate that the content is not longer relevant. I wanted my manager to apply a filter to every query set to include only items that are not disabled. Here&#8217;s what the manager class looks like:</p>
+
+<pre><code>class SearchableItemManager(SearchMangager):
+    def __init__(self):
+        zuper = super(SearchableItemManager, self)
+        zuper.__init__(('name','description',))
+
+    def get_query_set(self):
+        query = super(SearchableItemManager, self).get_query_set()
+        return query.filter(is_enabled=True)
+</code></pre>
+
+<h3>The Ugly Crash</h3>
+
+<p>When I made the change, I found that calling the <code>search()</code> method raised a TypeError: &#8220;&#8216;NoneType&#8217; object is not iterable.&#8221; The error occurred when the SearchQuerySet tried to construct the SQL for the MATCH&#8230;AGAINST clause. Somehow, the <code>_search_fields</code> tuple on the SearchQuerySet was None.</p>
+
+<h3>The Mystery Solved</h3>
+
+<p>This had me baffled until I had a look at the <em>QuerySet code in Django. It seems obvious now, but adding an additional filter to a query set returns a clone of the original with the new filter added. The </em>QuerySet object contains a <code>_clone</code> method that copies a hard-coded list of fields from the old QS to the new one. Naturally, that hard-coded list doesn&#8217;t know anything about my <code>_search_fields</code>, so the property has no value on the clone.</p>
+
+<h3>The Fix</h3>
+
+<p>Now, depending on how much of a zealot you are about modifying &#8220;private&#8221; functions, there are two ways to fix this. The easiest method is to simply override the <code>_clone</code> method and add the <code>_search_fields</code> tuple to the clone. The alternative is to override every method that depends on the _clone method, and copy over the <code>_search_fields</code> tuple for each one. I think that would be stupid, and will speak of it no further. Here&#8217;s the code I added to generate happiness:</p>
+
+<pre><code>class SearchQuerySet(models.query.QuerySet):
+    # ... code from the original Mercury Tide class
+    def _clone(self, klass=None, **kwargs):
+        zuper = super(SearchQuerySet, self)
+        clone = zuper._clone(klass, **kwargs)
+        clone._search_fields = self._search_fields
+        return clone
+</code></pre>
+
+<p>  *[QS]: Query Set</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hobnobbing in Boston]]></title>
+    <link href="http://subakva.github.com/blog/2008/01/11/hobnobbing-in-boston/"/>
+    <updated>2008-01-11T17:33:56-05:00</updated>
+    <id>http://subakva.github.com/blog/2008/01/11/hobnobbing-in-boston</id>
+    <content type="html"><![CDATA[<p><img src="http://subakva.com/wp-content/uploads/2008/01/meetup.gif" alt="Meet-Up Logo" /></p>
+
+<pre><code>One of the things that I'm most looking forward to about my ongoing transition to Boston is getting involved in the development community. I have no doubt that New Bedford has a few developers around, but the [meet-up community](http://www.meetup.com/) is completely dead, and the chances of me making [3 hour](http://www.allposters.com/-sp/Gilligan-s-Island-Posters_i1617189_.htm) round-trip to Boston on a week night just to talk shop are slim. But, now that I'm up there every day for work, you can expect to see me out on the town, [hobnobbing](http://www.etymonline.com/index.php?search=hobnob&amp;searchmode=none) with the [geekiest of the geeks](http://www.etymonline.com/index.php?search=geek&amp;searchmode=none).
+
+
+
+
+
+
+I went to my first meet-up last week: [The eXtreme Tuesday Club](http://xtcboston.blogspot.com/). It sounds like it might involve [jumping from a plane with a snowboard strapped to my feet while drinking Mountain Dew](http://www.halfbakery.com/idea/MtDew), but it's actually a group for [Extreme Programming](http://www.extremeprogramming.org/) (XP) zealots. I'm not actually a zealot about it, but I've seen it work brilliantly in the past and it's an experience that I'd like to repeat. That single, trancendental experience doing full XP with a great team was probably the most stress-free, fun, and productive project that I've ever been involved with.
+
+
+
+
+
+
+I had a great time at the meet-up. It wasn't heavily attended, but it was great talking to the few people that were there about [continuous integration](http://martinfowler.com/articles/continuousIntegration.html), [checked exceptions](http://www.artima.com/intv/handcuffs.html), and [other geekery](http://www.channel4.com/entertainment/tv/microsites/I/itcrowd/). There were a couple of guys from [a local Agile shop](http://cyrusinnovation.com/website/), a woman from "a very large company", and a sales guy from an IT services company. The sales guy was a bit out of his element, but he did manage to sit through my explanation of XP. I love trying to explain technical concepts to non-technical people, so I think I may have gotten more out of the experience than he did.
+
+
+
+
+
+
+I'll be back again next month, and in the meantime, there are meet-ups for (in order of eagerness) [JavaScript](http://javascript.meetup.com/2/), [Python](http://python.meetup.com/181/), [Web Design](http://webdesign.meetup.com/83/), [Ruby](http://ruby.meetup.com/87/) and [Java](http://java.meetup.com/10/). If you see me out hobnobbing, be sure to say "hello" and hand me the nickel that you owe me for reading this.
+</code></pre>
+
+<p>  *[XP]: Extreme Programming</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA["I am seated in an office, surrounded by heads and bodies," and Other Great Beginnings]]></title>
+    <link href="http://subakva.github.com/blog/2007/12/21/beginnings/"/>
+    <updated>2007-12-21T17:28:16-05:00</updated>
+    <id>http://subakva.github.com/blog/2007/12/21/beginnings</id>
+    <content type="html"><![CDATA[<p><img src="http://subakva.com/wp-content/uploads/2007/12/finite-jest.jpg" alt="Finite Jest" />
+There&#8217;s a trick to blogging.</p>
+
+<p>I don&#8217;t know what that trick is, but I intend to figure it out. I&#8217;ve had quite a few blogs in the past with sparse to middling success at maintaining them with new content. Maybe I ought to just throw in the towel and admit that I&#8217;m either too much of a perfectionist or too disorganized to maintain a blog successfully, but I can&#8217;t shake the feeling that I really ought to be doing this, and doing it well.</p>
+
+<p>So, this is my latest attempt at staking out some digital territory in the crowded, geek-o-sphere. It&#8217;s <a href="http://subakva.com">Subakva</a>, which means, for those of us who don&#8217;t speak <a href="http://lernu.net">esperanto</a>,  &#8220;underwater&#8221; (Prepare yourself for my upcoming blog entry on how to find an squatter-free domain name by learning obscure, artificial languages.)</p>
+
+<p>If you&#8217;re interested in web technology, interface design, and all that Geek 2.0 jazz, I predict that there will be something worthwhile for you to read here in the future. If you&#8217;re not interested in any of that, then there&#8217;s nothing for you here but heartache and disappointment. Go now, with your spirit still intact.</p>
+
+<p><strong>Excelsior!</strong></p>
+]]></content>
+  </entry>
   
 </feed>
