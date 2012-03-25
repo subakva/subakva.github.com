@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Subakva Teknika</title>
+  <meta name="author" content="Jason Wadsworth">
+
+  
+  <meta name="description" content="Yesterday, I needed to clobber a bunch of similarly-named database schemas on my development machine. I could have selected and deleted 40 times in &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://subakva.github.com/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Subakva Teknika" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Subakva Teknika</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:subakva.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/02/15/mysql-mass-destruction-with-xargs/">MySQL Mass Destruction With Xargs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-15T22:02:52-05:00" pubdate data-updated="true">Feb 15<span>th</span>, 2011</time>
+        
+         | <a href="/blog/2011/02/15/mysql-mass-destruction-with-xargs/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yesterday, I needed to clobber a bunch of similarly-named database schemas on my development machine. I could have selected and deleted 40 times in Navicat, but I thought I&#8217;d try to write a one-liner instead:</p>
+
+<p>`</p>
+
+<p>mysql -u root -e &#8220;show databases;&#8221; | grep _3_6 | xargs -IDB_NAME mysql -u root -e &#8220;drop database DB_NAME;&#8221;<br/>
+`</p>
+
+<p>The first part pulls the database names all the database names. The second part culls any schema names that don&#8217;t match &#8220;_3_6&#8221;, and the last part executes a DROP DATABASE command for each matching schema name.</p>
+
+<p>The clever bit is the &#8220;-I&#8221; flag to xargs, which sets a token to be replaced with the argument in the command string. In this case, the schema name (&#8220;pp_development_3_6&#8221;) is dropped in wherever xargs sees the string &#8220;DB_NAME&#8221; in the command.</p>
+
+<p>_<a href="http://en.wikipedia.org/wiki/PWB/UNIX">Wikipedia attributes the xargs utility to PWB/UNIX</a>. It may have been written by <a href="http://www.ugu.com/sui/ugu/showclassic?I=info.Dick_Haight">Dick Haight</a>, who is, apparently, the 10 of Clubs in the <a href="http://www.ugu.com/sui/ugu/showclassic?I=info.usenix-cards">Unix 25th Anniversary Playing Card deck</a>, which, apparently, exists.<br/>
+_</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/09/01/shareablerouteset-gist/">ShareableRouteSet - Gist</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-01T11:24:02-04:00" pubdate data-updated="true">Sep 1<span>st</span>, 2010</time>
+        
+         | <a href="/blog/2010/09/01/shareablerouteset-gist/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://gist.github.com/556374">ShareableRouteSet - Gist</a></p>
+
+<p>This is a class to allow the creation of Rails route helpers for external applications without interfering with the application routes.</p>
+
+<p>This is useful when you have a Rails application that needs to have some knowledge about the routes in another application. The routes could be published by the source application in a plugin/gem to avoid duplication of routing information.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/09/01/find-and-concatenate-files-with-spaces/">Find and Concatenate Files With Spaces</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-01T11:19:45-04:00" pubdate data-updated="true">Sep 1<span>st</span>, 2010</time>
+        
+         | <a href="/blog/2010/09/01/find-and-concatenate-files-with-spaces/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Normally, xargs will interpret the spaces in the filenames as separate files. The <code>-print0</code> argument to find paired with the <code>-0</code> argument to xargs will use some other magical delimiter so that the spacey filenames remain intact as you pipe them around.</p>
+
+<p>`</p>
+
+<p>find ./spacey_files -name <em>Report</em> -type f -print0 | xargs -0 cat > all_reports.csv<br/>
+`</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/22/bulk-update-github-hooks/">Bulk Update Github Hooks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-22T14:39:11-04:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2010</time>
+        
+         | <a href="/blog/2010/04/22/bulk-update-github-hooks/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The Github API doesn&#8217;t support updating hooks, but I&#8217;ve got way too many projects going to do it by hand. I wrote up this script to update all of my hooks at once. I used the <a href="http://mechanize.rubyforge.org/mechanize/">mechanize</a> gem to drive the web admin interface for the hooks that I needed.</p>
+
+<p>The gist with the code is here: <a href="http://gist.github.com/375621">[http://gist.github.com/375621](http://gist.github.com/375621)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/11/25/remove-an-environment-variable-in-bash/">Remove an Environment Variable in Bash</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-25T01:13:27-05:00" pubdate data-updated="true">Nov 25<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/11/25/remove-an-environment-variable-in-bash/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><code>export -n RAILS_ENV</code></p>
+
+<p>Setting an environment variable to nothing is not the same as removing it entirely. If really need it to go away completely, use the <code>-n</code> flag on <code>export</code>.</p>
+
+<p><strong>Behold:</strong></p>
+
+<pre><code>&lt;code&gt;
+jason@idaho:~/Code/subakva$ env | grep RAILS_ENV
+jason@idaho:~/Code/subakva$ export RAILS_ENV=development
+jason@idaho:~/Code/subakva$ env | grep RAILS_ENV
+RAILS_ENV=development
+jason@idaho:~/Code/subakva$ export RAILS_ENV=
+jason@idaho:~/Code/subakva$ env | grep RAILS_ENV
+RAILS_ENV=
+jason@idaho:~/Code/subakva$ export -n RAILS_ENV
+jason@idaho:~/Code/subakva$ env | grep RAILS_ENV
+jason@idaho:~/Code/subakva$
+&lt;/code&gt;
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/11/15/runcoderun/">RunCodeRun</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-15T11:57:08-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/11/15/runcoderun/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For a personal project, I&#8217;m trying out <a href="http://runcoderun.com">RunCodeRun</a>, a service for doing automated builds for projects on <a href="http://github.com">github</a>.</p>
+
+<p>I think the idea is a good one. For gems or simple web apps without complicated integration tests, getting an automated build up and running is dead simple. It&#8217;s just a matter of adding a post-commit hook to your github project to notify runcoderun that the code has been updated.</p>
+
+<p>I&#8217;ve run into a few issues with missing gems on the build machine, but they&#8217;ve been incredibly responsive. After posting a support request to install a gem, they not installed the gem I requested; they also installed a gem I didn&#8217;t know was missing, forked my project to fix a gem dependency problem and a database configuration problem, and sent me a pull request. This is all within 24 hours, and for a service I&#8217;m not even paying for!</p>
+
+<p>The service is free for Open Source code, but they have a paid build option for private projects with dedicated build resources. I haven&#8217;t used the paid service, so I&#8217;m not sure to what extent they support more complex requirements like multiple database connections, system services (Sphinx), and distributed systems.</p>
+
+<p>Hopefully, if <a href="http://thinkrelevance.com">Relevance</a> is dedicating the resources to provide such great support, they&#8217;ll also be improving the flexibility of the service for more complex builds. I doubt it would work in its current state for my current professional work, but I&#8217;d love to be able to easily outsource my builds.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/29/git-cannot-merge-try-committing-first/">Git Cannot Merge? Try Committing First.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-29T18:05:03-04:00" pubdate data-updated="true">May 29<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/05/29/git-cannot-merge-try-committing-first/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I ran into this git error again today:</p>
+
+<pre><code>&lt;code&gt;
+Entry 'blah/blah.rb' would be overwritten by merge. Cannot merge.
+&lt;/code&gt;
+</code></pre>
+
+<p>After messing around with it for a while, I remembered the last time this happened. The solution is to commit your current conflicting changes, then merge afterwards.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/21/sunlight-labs-blog-apps-for-america-2-the-datagov-challenge/">Sunlight Labs: Blog - Apps for America 2: The Data.gov Challenge</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-21T18:51:32-04:00" pubdate data-updated="true">May 21<span>st</span>, 2009</time>
+        
+         | <a href="/blog/2009/05/21/sunlight-labs-blog-apps-for-america-2-the-datagov-challenge/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://sunlightlabs.com/blog/2009/05/21/apps-america-2-datagov-challenge/">Sunlight Labs: Blog - Apps for America 2: The Data.gov Challenge</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/15/urijoin-v-filejoin/">URI.join v. File.join</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-15T19:12:00-04:00" pubdate data-updated="true">May 15<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/05/15/urijoin-v-filejoin/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><code>URI.join</code> does not work quite the same way as <code>File.join</code> in Ruby. The aim of <code>URI.join</code> is more to calculate a relative path (as a browser would) than to simply concatenate path elements cleanly. The irb output below demonstrates this:</p>
+
+<p>`</p>
+
+<pre><code>irb&gt; require 'uri' #=&gt; true
+irb&gt; host = 'http://www.example.com' #=&gt; "http://www.example.com"
+irb&gt; prefix = 'prefix' #=&gt; "prefix"
+irb&gt; file = 'file.html' #=&gt; "file.html"
+irb&gt; URI.join(host, prefix, file).to_s #=&gt; "http://www.example.com/file.html"
+irb&gt; URI.join(host, prefix+ '/', file).to_s #=&gt; "http://www.example.com/prefix/file.html"
+</code></pre>
+
+<p>`</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/08/sinatra-hacking-at-railsconf/">Sinatra Hacking at RailsConf</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-08T16:21:33-04:00" pubdate data-updated="true">May 8<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/05/08/sinatra-hacking-at-railsconf/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I played around with <a href="http://www.sinatrarb.com/">Sinatra</a> a bit at RailsConf and there&#8217;s a tiny spec of open source code to show for it:</p>
+
+<ul>
+<li><p><a href="http://subakva.github.com/bourbon">Bourbon</a> - An extension to Sinatra that adds support for <a href="http://wiki.github.com/tobi/liquid">Liquid</a> templates.</p></li>
+<li><p><a href="http://github.com/subakva/colorurl/tree/master">ColorURL</a> - A simple Sinatra application that displays a page in the color of the URL path. It uses the <a href="http://color.rubyforge.org/">color</a> gem and is deployed on <a href="http://www.heroku.com">Heroku</a>. [<a href="http://colorurl.heroku.com/mauve">[http://colorurl.heroku.com/mauve](http://colorurl.heroku.com/mauve)</a>]</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/01/15/federal-reserve-bank-of-boston-taken-with-instagram/">None</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson/">Book Review: HTML5 Cookbook by Christopher Schmitt, Kyle Simpson</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media/">Book Review: A Bug Hunter&#8217;s Diary by Tobias Klein; O&#8217;Reilly Media</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media/">Book Review: Test-Driven Infrastructure with Chef by Stephen Nelson-Smith; O&#8217;Reilly Media</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/08/02/the-mother-of-all-interview-questions-raganwalds-posterous/">The Mother of All Interview Questions - raganwald&#8217;s posterous</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/subakva">@subakva</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'subakva',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("subakva", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/subakva" class="twitter-follow-button" data-show-count="false">Follow @subakva</a>
+  
+</section>
+
+
+<section>
+  <h1>My Pinboard</h1>
+  <ul id="pinboard_linkroll">Fetching linkroll&#8230;</ul>
+  <p><a href="http://pinboard.in/u:subakva">My Pinboard Bookmarks &raquo;</a></p>
+</section>
+<script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+  var pinboard_user = "subakva"; //id target for pinboard list
+  var pinboard_count = 3; //id target for pinboard list
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/javascripts/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+</script>
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Jason Wadsworth -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'subakva';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>"I am seated in an office, surrounded by heads and bodies," and Other Great Beginnings - Subakva Teknika</title>
+  <title>RunCodeRun - Subakva Teknika</title>
   <meta name="author" content="Jason Wadsworth">
 
   
-  <meta name="description" content="There&#8217;s a trick to blogging. I don&#8217;t know what that trick is, but I intend to figure it out. I&#8217;ve had quite a few blogs in the &hellip;">
+  <meta name="description" content="For a personal project, I&#8217;m trying out RunCodeRun, a service for doing automated builds for projects on github. I think the idea is a good one &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://subakva.github.com/blog/2007/12/21/beginnings">
+  <link rel="canonical" href="http://subakva.github.com/blog/2009/11/15/runcoderun">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -65,7 +65,7 @@
   
   <header>
     
-      <h1 class="entry-title">"I Am Seated in an Office, Surrounded by Heads and Bodies," and Other Great Beginnings</h1>
+      <h1 class="entry-title">RunCodeRun</h1>
     
     
       <p class="meta">
@@ -81,7 +81,7 @@
   
 
 
-<time datetime="2007-12-21T17:28:16-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+<time datetime="2009-11-15T11:57:08-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2009</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -90,16 +90,15 @@
   </header>
 
 
-<div class="entry-content"><p><img src="http://subakva.com/wp-content/uploads/2007/12/finite-jest.jpg" alt="Finite Jest" />
-There&#8217;s a trick to blogging.</p>
+<div class="entry-content"><p>For a personal project, I&#8217;m trying out <a href="http://runcoderun.com">RunCodeRun</a>, a service for doing automated builds for projects on <a href="http://github.com">github</a>.</p>
 
-<p>I don&#8217;t know what that trick is, but I intend to figure it out. I&#8217;ve had quite a few blogs in the past with sparse to middling success at maintaining them with new content. Maybe I ought to just throw in the towel and admit that I&#8217;m either too much of a perfectionist or too disorganized to maintain a blog successfully, but I can&#8217;t shake the feeling that I really ought to be doing this, and doing it well.</p>
+<p>I think the idea is a good one. For gems or simple web apps without complicated integration tests, getting an automated build up and running is dead simple. It&#8217;s just a matter of adding a post-commit hook to your github project to notify runcoderun that the code has been updated.</p>
 
-<p>So, this is my latest attempt at staking out some digital territory in the crowded, geek-o-sphere. It&#8217;s <a href="http://subakva.com">Subakva</a>, which means, for those of us who don&#8217;t speak <a href="http://lernu.net">esperanto</a>,  &#8220;underwater&#8221; (Prepare yourself for my upcoming blog entry on how to find an squatter-free domain name by learning obscure, artificial languages.)</p>
+<p>I&#8217;ve run into a few issues with missing gems on the build machine, but they&#8217;ve been incredibly responsive. After posting a support request to install a gem, they not installed the gem I requested; they also installed a gem I didn&#8217;t know was missing, forked my project to fix a gem dependency problem and a database configuration problem, and sent me a pull request. This is all within 24 hours, and for a service I&#8217;m not even paying for!</p>
 
-<p>If you&#8217;re interested in web technology, interface design, and all that Geek 2.0 jazz, I predict that there will be something worthwhile for you to read here in the future. If you&#8217;re not interested in any of that, then there&#8217;s nothing for you here but heartache and disappointment. Go now, with your spirit still intact.</p>
+<p>The service is free for Open Source code, but they have a paid build option for private projects with dedicated build resources. I haven&#8217;t used the paid service, so I&#8217;m not sure to what extent they support more complex requirements like multiple database connections, system services (Sphinx), and distributed systems.</p>
 
-<p><strong>Excelsior!</strong></p>
+<p>Hopefully, if <a href="http://thinkrelevance.com">Relevance</a> is dedicating the resources to provide such great support, they&#8217;ll also be improving the flexibility of the service for more complex builds. I doubt it would work in its current state for my current professional work, but I&#8217;d love to be able to easily outsource my builds.</p>
 </div>
 
 
@@ -122,15 +121,21 @@ There&#8217;s a trick to blogging.</p>
   
 
 
-<time datetime="2007-12-21T17:28:16-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+<time datetime="2009-11-15T11:57:08-05:00" pubdate data-updated="true">Nov 15<span>th</span>, 2009</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/regular/'>regular</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://subakva.github.com/blog/2007/12/21/beginnings/" data-via="subakva" data-counturl="http://subakva.github.com/blog/2007/12/21/beginnings/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://subakva.github.com/blog/2009/11/15/runcoderun/" data-via="subakva" data-counturl="http://subakva.github.com/blog/2009/11/15/runcoderun/" >Tweet</a>
   
   
   
@@ -139,8 +144,10 @@ There&#8217;s a trick to blogging.</p>
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2009/05/29/git-cannot-merge-try-committing-first/" title="Previous Post: Git Cannot Merge? Try committing first.">&laquo; Git Cannot Merge? Try committing first.</a>
       
-        <a class="basic-alignment right" href="/blog/2008/01/11/hobnobbing-in-boston/" title="Next Post: Hobnobbing in Boston">Hobnobbing in Boston &raquo;</a>
+      
+        <a class="basic-alignment right" href="/blog/2009/11/25/remove-an-environment-variable-in-bash/" title="Next Post: Remove an Environment Variable in Bash">Remove an Environment Variable in Bash &raquo;</a>
       
     </p>
   </footer>

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>"I am seated in an office, surrounded by heads and bodies," and Other Great Beginnings - Subakva Teknika</title>
+  <title>s3cmd with MacPorts - Subakva Teknika</title>
   <meta name="author" content="Jason Wadsworth">
 
   
-  <meta name="description" content="There&#8217;s a trick to blogging. I don&#8217;t know what that trick is, but I intend to figure it out. I&#8217;ve had quite a few blogs in the &hellip;">
+  <meta name="description" content="I ran into a string of errors while trying to run s3cmd with MacPorts python. /opt/local/bin/s3cmd uses ParameterError before importing it. I moved &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://subakva.github.com/blog/2007/12/21/beginnings">
+  <link rel="canonical" href="http://subakva.github.com/blog/2009/04/21/s3cmd-with-macports">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -65,7 +65,7 @@
   
   <header>
     
-      <h1 class="entry-title">"I Am Seated in an Office, Surrounded by Heads and Bodies," and Other Great Beginnings</h1>
+      <h1 class="entry-title">S3cmd With MacPorts</h1>
     
     
       <p class="meta">
@@ -81,7 +81,7 @@
   
 
 
-<time datetime="2007-12-21T17:28:16-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+<time datetime="2009-04-21T11:52:18-04:00" pubdate data-updated="true">Apr 21<span>st</span>, 2009</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -90,16 +90,40 @@
   </header>
 
 
-<div class="entry-content"><p><img src="http://subakva.com/wp-content/uploads/2007/12/finite-jest.jpg" alt="Finite Jest" />
-There&#8217;s a trick to blogging.</p>
+<div class="entry-content"><p>I ran into a string of errors while trying to run s3cmd with MacPorts python.</p>
 
-<p>I don&#8217;t know what that trick is, but I intend to figure it out. I&#8217;ve had quite a few blogs in the past with sparse to middling success at maintaining them with new content. Maybe I ought to just throw in the towel and admit that I&#8217;m either too much of a perfectionist or too disorganized to maintain a blog successfully, but I can&#8217;t shake the feeling that I really ought to be doing this, and doing it well.</p>
+<p><code>/opt/local/bin/s3cmd</code> uses <code>ParameterError</code> before importing it. I moved the imports out of the try/except block to get this working:</p>
 
-<p>So, this is my latest attempt at staking out some digital territory in the crowded, geek-o-sphere. It&#8217;s <a href="http://subakva.com">Subakva</a>, which means, for those of us who don&#8217;t speak <a href="http://lernu.net">esperanto</a>,  &#8220;underwater&#8221; (Prepare yourself for my upcoming blog entry on how to find an squatter-free domain name by learning obscure, artificial languages.)</p>
+<pre><code>if __name__ == '__main__':
 
-<p>If you&#8217;re interested in web technology, interface design, and all that Geek 2.0 jazz, I predict that there will be something worthwhile for you to read here in the future. If you&#8217;re not interested in any of that, then there&#8217;s nothing for you here but heartache and disappointment. Go now, with your spirit still intact.</p>
+    from S3 import PkgInfo
+    from S3.S3 import *
+    from S3.Config import Config
+    from S3.S3Uri import *
+    from S3 import Utils
+    from S3.Exceptions import *
+    from S3.Utils import unicodise
+    from S3.Progress import Progress
+    from S3.CloudFront import Cmd as CfCmd
 
-<p><strong>Excelsior!</strong></p>
+    try:
+
+        main()
+        sys.exit(0)
+
+    except ParameterError, e:
+        error(u"Parameter problem: %s" % e)
+        sys.exit(1)
+</code></pre>
+
+<p>Next, the command died while trying to import <em>md5. The Python 2.5 port does not include hashlib, which defines </em>md5. You can install it yourself like so:<br/>
+<code>sudo port install py25-hashlib</code></p>
+
+<p>Lastly, while running <code>s3cmd --configure</code> and testing my connection with the HTTPS option, I got this warning:<br/>
+<code>WARNING: Retrying failed request: /?delimiter=/ ('module' object has no attribute 'ssl')</code></p>
+
+<p>This feature depends on another port, which can be installed with:<br/>
+<code>sudo port install py25-socket-ssl</code></p>
 </div>
 
 
@@ -122,15 +146,21 @@ There&#8217;s a trick to blogging.</p>
   
 
 
-<time datetime="2007-12-21T17:28:16-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+<time datetime="2009-04-21T11:52:18-04:00" pubdate data-updated="true">Apr 21<span>st</span>, 2009</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/regular/'>regular</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://subakva.github.com/blog/2007/12/21/beginnings/" data-via="subakva" data-counturl="http://subakva.github.com/blog/2007/12/21/beginnings/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://subakva.github.com/blog/2009/04/21/s3cmd-with-macports/" data-via="subakva" data-counturl="http://subakva.github.com/blog/2009/04/21/s3cmd-with-macports/" >Tweet</a>
   
   
   
@@ -139,8 +169,10 @@ There&#8217;s a trick to blogging.</p>
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2008/09/14/only-in-python/" title="Previous Post: Only in Python...">&laquo; Only in Python...</a>
       
-        <a class="basic-alignment right" href="/blog/2008/01/11/hobnobbing-in-boston/" title="Next Post: Hobnobbing in Boston">Hobnobbing in Boston &raquo;</a>
+      
+        <a class="basic-alignment right" href="/blog/2009/04/22/ruby-network-error-list/" title="Next Post: Ruby Network Error List">Ruby Network Error List &raquo;</a>
       
     </p>
   </footer>

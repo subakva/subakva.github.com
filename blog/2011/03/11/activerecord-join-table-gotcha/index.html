@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>"I am seated in an office, surrounded by heads and bodies," and Other Great Beginnings - Subakva Teknika</title>
+  <title>ActiveRecord Join Table Gotcha - Subakva Teknika</title>
   <meta name="author" content="Jason Wadsworth">
 
   
-  <meta name="description" content="There&#8217;s a trick to blogging. I don&#8217;t know what that trick is, but I intend to figure it out. I&#8217;ve had quite a few blogs in the &hellip;">
+  <meta name="description" content="Whenever I create join tables, I&#8217;m always tempted to add an ID column, in case I want to upgrade it to a :through association at some point. I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://subakva.github.com/blog/2007/12/21/beginnings">
+  <link rel="canonical" href="http://subakva.github.com/blog/2011/03/11/activerecord-join-table-gotcha">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -65,7 +65,7 @@
   
   <header>
     
-      <h1 class="entry-title">"I Am Seated in an Office, Surrounded by Heads and Bodies," and Other Great Beginnings</h1>
+      <h1 class="entry-title">ActiveRecord Join Table Gotcha</h1>
     
     
       <p class="meta">
@@ -81,7 +81,7 @@
   
 
 
-<time datetime="2007-12-21T17:28:16-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+<time datetime="2011-03-11T20:10:30-05:00" pubdate data-updated="true">Mar 11<span>th</span>, 2011</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -90,16 +90,19 @@
   </header>
 
 
-<div class="entry-content"><p><img src="http://subakva.com/wp-content/uploads/2007/12/finite-jest.jpg" alt="Finite Jest" />
-There&#8217;s a trick to blogging.</p>
+<div class="entry-content"><p>Whenever I create join tables, I&#8217;m always tempted to add an ID column, in case I want to upgrade it to a :through association at some point. I&#8217;m also tempted to timestamp columns, so that I can know when the association was created.</p>
 
-<p>I don&#8217;t know what that trick is, but I intend to figure it out. I&#8217;ve had quite a few blogs in the past with sparse to middling success at maintaining them with new content. Maybe I ought to just throw in the towel and admit that I&#8217;m either too much of a perfectionist or too disorganized to maintain a blog successfully, but I can&#8217;t shake the feeling that I really ought to be doing this, and doing it well.</p>
+<p>Sadly, it just doesn&#8217;t work with <code>has_and_belongs_to_many</code>.</p>
 
-<p>So, this is my latest attempt at staking out some digital territory in the crowded, geek-o-sphere. It&#8217;s <a href="http://subakva.com">Subakva</a>, which means, for those of us who don&#8217;t speak <a href="http://lernu.net">esperanto</a>,  &#8220;underwater&#8221; (Prepare yourself for my upcoming blog entry on how to find an squatter-free domain name by learning obscure, artificial languages.)</p>
+<ul>
+<li><p>If you add an ID column, Rails will choke as soon as you try to access it. IDs are not allowed!</p></li>
+<li><p>If you add timestamps, Rails will make all of your association records readonly.</p></li>
+</ul>
 
-<p>If you&#8217;re interested in web technology, interface design, and all that Geek 2.0 jazz, I predict that there will be something worthwhile for you to read here in the future. If you&#8217;re not interested in any of that, then there&#8217;s nothing for you here but heartache and disappointment. Go now, with your spirit still intact.</p>
 
-<p><strong>Excelsior!</strong></p>
+<p>If you want to have an ID and timestamps, you&#8217;ll just have to bite the bullet and create an association model and a <code>has_many :through</code> relationship.</p>
+
+<p>Maybe now that I&#8217;ve written about it, I&#8217;ll remember it next time and save myself debugging mysterious <code>"ActiveRecord::ReadOnlyRecord: ActiveRecord::ReadOnlyRecord"</code> errors.</p>
 </div>
 
 
@@ -122,15 +125,21 @@ There&#8217;s a trick to blogging.</p>
   
 
 
-<time datetime="2007-12-21T17:28:16-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+<time datetime="2011-03-11T20:10:30-05:00" pubdate data-updated="true">Mar 11<span>th</span>, 2011</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/regular/'>regular</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://subakva.github.com/blog/2007/12/21/beginnings/" data-via="subakva" data-counturl="http://subakva.github.com/blog/2007/12/21/beginnings/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://subakva.github.com/blog/2011/03/11/activerecord-join-table-gotcha/" data-via="subakva" data-counturl="http://subakva.github.com/blog/2011/03/11/activerecord-join-table-gotcha/" >Tweet</a>
   
   
   
@@ -139,8 +148,10 @@ There&#8217;s a trick to blogging.</p>
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2011/02/15/mysql-mass-destruction-with-xargs/" title="Previous Post: MySQL Mass Destruction with xargs">&laquo; MySQL Mass Destruction with xargs</a>
       
-        <a class="basic-alignment right" href="/blog/2008/01/11/hobnobbing-in-boston/" title="Next Post: Hobnobbing in Boston">Hobnobbing in Boston &raquo;</a>
+      
+        <a class="basic-alignment right" href="/blog/2011/03/12/shady-characters-the-secret-life-of-punctuation/" title="Next Post: Shady Characters - The secret life of punctuation">Shady Characters - The secret life of punctuation &raquo;</a>
       
     </p>
   </footer>

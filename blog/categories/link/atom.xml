@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: link | Subakva Teknika]]></title>
+  <link href="http://subakva.github.com/blog/categories/link/atom.xml" rel="self"/>
+  <link href="http://subakva.github.com/"/>
+  <updated>2012-03-25T15:32:55-04:00</updated>
+  <id>http://subakva.github.com/</id>
+  <author>
+    <name><![CDATA[Jason Wadsworth]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The Mother of All Interview Questions - raganwald's posterous]]></title>
+    <link href="http://subakva.github.com/blog/2011/08/02/the-mother-of-all-interview-questions-raganwalds-posterous/"/>
+    <updated>2011-08-02T14:43:29-04:00</updated>
+    <id>http://subakva.github.com/blog/2011/08/02/the-mother-of-all-interview-questions-raganwalds-posterous</id>
+    <content type="html"><![CDATA[<p><a href="http://raganwald.posterous.com/the-mother-of-all-interview-questions">The Mother of All Interview Questions - raganwald's posterous</a></p>
+
+<p>"Does your process involve invention? … " This is a great interview question. It's a conversation starter, and it's both relevant to evaluating a candidate and, hopefully, an interesting question for the interviewee to consider.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Making applications scalable with Load Balancing]]></title>
+    <link href="http://subakva.github.com/blog/2011/07/29/making-applications-scalable-with-load-balancing/"/>
+    <updated>2011-07-29T09:32:03-04:00</updated>
+    <id>http://subakva.github.com/blog/2011/07/29/making-applications-scalable-with-load-balancing</id>
+    <content type="html"><![CDATA[<p><a href="http://1wt.eu/articles/2006_lb/">Making applications scalable with Load Balancing</a></p>
+
+<p>Old but useful article about load balancing issues by the author of HAProxy</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jay Fields' Thoughts: The High-Level Test Whisperer]]></title>
+    <link href="http://subakva.github.com/blog/2011/07/22/jay-fields-thoughts-the-high-level-test-whisperer/"/>
+    <updated>2011-07-22T09:57:19-04:00</updated>
+    <id>http://subakva.github.com/blog/2011/07/22/jay-fields-thoughts-the-high-level-test-whisperer</id>
+    <content type="html"><![CDATA[<p><a href="http://blog.jayfields.com/2011/07/high-level-test-whisperer.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed:%20jayfields/mjKQ%20(Jay%20Fields%20Thoughts">Jay Fields' Thoughts: The High-Level Test Whisperer</a>)</p>
+
+<p>Two key takeaways from this post:</p>
+
+<ul>
+<li><p>Sometimes it's better to clobber an unmaintainable test suite and start over with something simple and focused on maximizing value.</p></li>
+<li><p>Maintenance of high-level tests might be a sensible place to break from the shared code-ownership principle.</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Shady Characters - The secret life of punctuation]]></title>
+    <link href="http://subakva.github.com/blog/2011/03/12/shady-characters-the-secret-life-of-punctuation/"/>
+    <updated>2011-03-12T14:57:48-05:00</updated>
+    <id>http://subakva.github.com/blog/2011/03/12/shady-characters-the-secret-life-of-punctuation</id>
+    <content type="html"><![CDATA[<p><a href="http://www.shadycharacters.co.uk/2010/12/hello-world/">Shady Characters - The secret life of punctuation</a></p>
+
+<p>Proving once again the breadth of my geekdom, I'm really enjoying this blog about the history of punctuation.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ShareableRouteSet - Gist]]></title>
+    <link href="http://subakva.github.com/blog/2010/09/01/shareablerouteset-gist/"/>
+    <updated>2010-09-01T11:24:02-04:00</updated>
+    <id>http://subakva.github.com/blog/2010/09/01/shareablerouteset-gist</id>
+    <content type="html"><![CDATA[<p><a href="http://gist.github.com/556374">ShareableRouteSet - Gist</a></p>
+
+<p>This is a class to allow the creation of Rails route helpers for external applications without interfering with the application routes.</p>
+
+<p>This is useful when you have a Rails application that needs to have some knowledge about the routes in another application. The routes could be published by the source application in a plugin/gem to avoid duplication of routing information.</p>
+]]></content>
+  </entry>
+  
+</feed>

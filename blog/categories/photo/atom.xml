@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: photo | Subakva Teknika]]></title>
+  <link href="http://subakva.github.com/blog/categories/photo/atom.xml" rel="self"/>
+  <link href="http://subakva.github.com/"/>
+  <updated>2012-03-25T15:32:55-04:00</updated>
+  <id>http://subakva.github.com/</id>
+  <author>
+    <name><![CDATA[Jason Wadsworth]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[None]]></title>
+    <link href="http://subakva.github.com/blog/2012/01/15/federal-reserve-bank-of-boston-taken-with-instagram/"/>
+    <updated>2012-01-15T09:24:59-05:00</updated>
+    <id>http://subakva.github.com/blog/2012/01/15/federal-reserve-bank-of-boston-taken-with-instagram</id>
+    <content type="html"><![CDATA[<p><img src="http://www.tumblr.com/photo/1280/subakva/15884659363/1/tumblr_lxug1nl7Xr1qzbsqk" alt="" /></p>
+
+<p>Federal Reserve Bank of Boston (Taken with <a href="http://instagr.am">instagram</a>)</p>
+]]></content>
+  </entry>
+  
+</feed>

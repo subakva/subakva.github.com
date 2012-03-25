@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Subakva Teknika</title>
+  <meta name="author" content="Jason Wadsworth">
+
+  
+  <meta name="description" content="I&#8217;ve been dealing with some issues related to character encodings in MySQL, and I ran across this series of articles. It covers the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://subakva.github.com/blog/page/3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Subakva Teknika" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Subakva Teknika</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:subakva.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/28/character-encodings-in-ruby/">Character Encodings in Ruby</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-28T09:53:32-04:00" pubdate data-updated="true">Apr 28<span>th</span>, 2009</time>
+        
+         | <a href="/blog/2009/04/28/character-encodings-in-ruby/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve been dealing with some issues related to character encodings in MySQL, and I ran across this series of articles. It covers the fundamentals of character sets and encodings as well as an overview of how they work with Ruby 1.8 and 1.9:</p>
+
+<p><a href="http://blog.grayproductions.net/articles/understanding_m17n">Shades of Gray: Understanding M17n</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/22/ruby-network-error-list/">Ruby Network Error List</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-22T15:33:18-04:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2009</time>
+        
+         | <a href="/blog/2009/04/22/ruby-network-error-list/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m writing some code that needs to handle a failed network connection. Here&#8217;s an almost certainly incomplete list of the exceptions I need rescue:</p>
+
+<p><code>SocketError,   Timeout::Error,   ActiveResource::TimeoutError,   Errno::ECONNREFUSED,   Errno::EHOSTDOWN,   Errno::EHOSTUNREACH</code></p>
+
+<p>How about an IOError or something?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/21/s3cmd-with-macports/">S3cmd With MacPorts</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-21T11:52:18-04:00" pubdate data-updated="true">Apr 21<span>st</span>, 2009</time>
+        
+         | <a href="/blog/2009/04/21/s3cmd-with-macports/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I ran into a string of errors while trying to run s3cmd with MacPorts python.</p>
+
+<p><code>/opt/local/bin/s3cmd</code> uses <code>ParameterError</code> before importing it. I moved the imports out of the try/except block to get this working:</p>
+
+<pre><code>if __name__ == '__main__':
+
+    from S3 import PkgInfo
+    from S3.S3 import *
+    from S3.Config import Config
+    from S3.S3Uri import *
+    from S3 import Utils
+    from S3.Exceptions import *
+    from S3.Utils import unicodise
+    from S3.Progress import Progress
+    from S3.CloudFront import Cmd as CfCmd
+
+    try:
+
+        main()
+        sys.exit(0)
+
+    except ParameterError, e:
+        error(u"Parameter problem: %s" % e)
+        sys.exit(1)
+</code></pre>
+
+<p>Next, the command died while trying to import <em>md5. The Python 2.5 port does not include hashlib, which defines </em>md5. You can install it yourself like so:<br/>
+<code>sudo port install py25-hashlib</code></p>
+
+<p>Lastly, while running <code>s3cmd --configure</code> and testing my connection with the HTTPS option, I got this warning:<br/>
+<code>WARNING: Retrying failed request: /?delimiter=/ ('module' object has no attribute 'ssl')</code></p>
+
+<p>This feature depends on another port, which can be installed with:<br/>
+<code>sudo port install py25-socket-ssl</code></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/14/only-in-python/">Only in Python&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-14T23:33:41-04:00" pubdate data-updated="true">Sep 14<span>th</span>, 2008</time>
+        
+         | <a href="/blog/2008/09/14/only-in-python/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just <a href="http://docs.python.org/lib/bltin-file-objects.html">imported code from the <strong>future</strong></a>. That <a href="http://xkcd.com/353/">famous XKCD comic</a> is a lot closer to reality than you might have thought.</p>
+
+<p><code>from __future__ import with_statement</code></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/06/02/more-drafts-than-posts/">More Drafts Than Posts</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-02T00:29:55-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2008</time>
+        
+         | <a href="/blog/2008/06/02/more-drafts-than-posts/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As I write this, this blog system contains 3 published posts and 8 drafts. If you were to try to infer my level of engagement with technology from the activity on this blog, you might think I&#8217;ve given up and started selling used cars. For better or worse, that&#8217;s not the case.</p>
+
+<p>Here are some things that I coulda/shoulda blogged about since I last posted in January:</p>
+
+<ul>
+<li><p>Tagging Dreams with Django</p></li>
+<li><p>Plotting the Future of Crosscheck</p></li>
+<li><p>New Gig: Second Rotation</p></li>
+<li><p>From Django to Rails (and Back)</p></li>
+<li><p>Encapsulating a Django Project</p></li>
+<li><p>Auditable Django Models</p></li>
+<li><p>Simplify Wordpress Upgrades With Subversion</p></li>
+<li><p>The AppEngine Experience</p></li>
+<li><p>Building Web Apps on the T</p></li>
+<li><p>A Brief History of Freestyle</p></li>
+<li><p>Building Your Own Blog: Awesome or Chumpy?</p></li>
+<li><p>Boston BarCamp 2008</p></li>
+</ul>
+
+
+<p>I&#8217;m a bad, bad blogger. This list doesn&#8217;t include any of the drafts that I actually began to write. But, as I look at this list, there&#8217;s a lot of interesting stuff here. I suspect that if I actually make myself write about the things that I&#8217;m thinking and working on, it will help motivate me to finish some of my projects. If I&#8217;m lucky, a few people might even read it, which will motivate me even more. Is this how life works for extroverts?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/02/26/clone-my-fields-please/">Clone My Fields, Please</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-26T23:50:59-05:00" pubdate data-updated="true">Feb 26<span>th</span>, 2008</time>
+        
+         | <a href="/blog/2008/02/26/clone-my-fields-please/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>The Introduction</h3>
+
+<p>I recently started using the SearchManager from <a href="http://www.mercurytide.co.uk/whitepapers/django-full-text-search/">the Mercury Tide white paper</a> on using <a href="http://dev.mysql.com/doc/refman/5.0/en/fulltext-search.html">MySQL full-text search</a> with <a href="http://www.djangoproject.com/">Django</a>. It&#8217;s been helpful, but I ran into a bug recently while trying to add a default filter to a SearchManager subclass.</p>
+
+<h3>The Boring Context</h3>
+
+<p>Rather than deleting objects from the database, my application sets a boolean flag to indicate that the content is not longer relevant. I wanted my manager to apply a filter to every query set to include only items that are not disabled. Here&#8217;s what the manager class looks like:</p>
+
+<pre><code>class SearchableItemManager(SearchMangager):
+    def __init__(self):
+        zuper = super(SearchableItemManager, self)
+        zuper.__init__(('name','description',))
+
+    def get_query_set(self):
+        query = super(SearchableItemManager, self).get_query_set()
+        return query.filter(is_enabled=True)
+</code></pre>
+
+<h3>The Ugly Crash</h3>
+
+<p>When I made the change, I found that calling the <code>search()</code> method raised a TypeError: &#8220;&#8216;NoneType&#8217; object is not iterable.&#8221; The error occurred when the SearchQuerySet tried to construct the SQL for the MATCH&#8230;AGAINST clause. Somehow, the <code>_search_fields</code> tuple on the SearchQuerySet was None.</p>
+
+<h3>The Mystery Solved</h3>
+
+<p>This had me baffled until I had a look at the <em>QuerySet code in Django. It seems obvious now, but adding an additional filter to a query set returns a clone of the original with the new filter added. The </em>QuerySet object contains a <code>_clone</code> method that copies a hard-coded list of fields from the old QS to the new one. Naturally, that hard-coded list doesn&#8217;t know anything about my <code>_search_fields</code>, so the property has no value on the clone.</p>
+
+<h3>The Fix</h3>
+
+<p>Now, depending on how much of a zealot you are about modifying &#8220;private&#8221; functions, there are two ways to fix this. The easiest method is to simply override the <code>_clone</code> method and add the <code>_search_fields</code> tuple to the clone. The alternative is to override every method that depends on the _clone method, and copy over the <code>_search_fields</code> tuple for each one. I think that would be stupid, and will speak of it no further. Here&#8217;s the code I added to generate happiness:</p>
+
+<pre><code>class SearchQuerySet(models.query.QuerySet):
+    # ... code from the original Mercury Tide class
+    def _clone(self, klass=None, **kwargs):
+        zuper = super(SearchQuerySet, self)
+        clone = zuper._clone(klass, **kwargs)
+        clone._search_fields = self._search_fields
+        return clone
+</code></pre>
+
+<p>  *[QS]: Query Set</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/01/11/hobnobbing-in-boston/">Hobnobbing in Boston</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-11T17:33:56-05:00" pubdate data-updated="true">Jan 11<span>th</span>, 2008</time>
+        
+         | <a href="/blog/2008/01/11/hobnobbing-in-boston/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://subakva.com/wp-content/uploads/2008/01/meetup.gif" alt="Meet-Up Logo" /></p>
+
+<pre><code>One of the things that I'm most looking forward to about my ongoing transition to Boston is getting involved in the development community. I have no doubt that New Bedford has a few developers around, but the [meet-up community](http://www.meetup.com/) is completely dead, and the chances of me making [3 hour](http://www.allposters.com/-sp/Gilligan-s-Island-Posters_i1617189_.htm) round-trip to Boston on a week night just to talk shop are slim. But, now that I'm up there every day for work, you can expect to see me out on the town, [hobnobbing](http://www.etymonline.com/index.php?search=hobnob&amp;searchmode=none) with the [geekiest of the geeks](http://www.etymonline.com/index.php?search=geek&amp;searchmode=none).
+
+
+
+
+
+
+I went to my first meet-up last week: [The eXtreme Tuesday Club](http://xtcboston.blogspot.com/). It sounds like it might involve [jumping from a plane with a snowboard strapped to my feet while drinking Mountain Dew](http://www.halfbakery.com/idea/MtDew), but it's actually a group for [Extreme Programming](http://www.extremeprogramming.org/) (XP) zealots. I'm not actually a zealot about it, but I've seen it work brilliantly in the past and it's an experience that I'd like to repeat. That single, trancendental experience doing full XP with a great team was probably the most stress-free, fun, and productive project that I've ever been involved with.
+
+
+
+
+
+
+I had a great time at the meet-up. It wasn't heavily attended, but it was great talking to the few people that were there about [continuous integration](http://martinfowler.com/articles/continuousIntegration.html), [checked exceptions](http://www.artima.com/intv/handcuffs.html), and [other geekery](http://www.channel4.com/entertainment/tv/microsites/I/itcrowd/). There were a couple of guys from [a local Agile shop](http://cyrusinnovation.com/website/), a woman from "a very large company", and a sales guy from an IT services company. The sales guy was a bit out of his element, but he did manage to sit through my explanation of XP. I love trying to explain technical concepts to non-technical people, so I think I may have gotten more out of the experience than he did.
+
+
+
+
+
+
+I'll be back again next month, and in the meantime, there are meet-ups for (in order of eagerness) [JavaScript](http://javascript.meetup.com/2/), [Python](http://python.meetup.com/181/), [Web Design](http://webdesign.meetup.com/83/), [Ruby](http://ruby.meetup.com/87/) and [Java](http://java.meetup.com/10/). If you see me out hobnobbing, be sure to say "hello" and hand me the nickel that you owe me for reading this.
+</code></pre>
+
+<p>  *[XP]: Extreme Programming</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/12/21/beginnings/">&#8220;I Am Seated in an Office, Surrounded by Heads and Bodies,&#8221; and Other Great Beginnings</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-21T17:28:16-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2007</time>
+        
+         | <a href="/blog/2007/12/21/beginnings/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://subakva.com/wp-content/uploads/2007/12/finite-jest.jpg" alt="Finite Jest" />
+There&#8217;s a trick to blogging.</p>
+
+<p>I don&#8217;t know what that trick is, but I intend to figure it out. I&#8217;ve had quite a few blogs in the past with sparse to middling success at maintaining them with new content. Maybe I ought to just throw in the towel and admit that I&#8217;m either too much of a perfectionist or too disorganized to maintain a blog successfully, but I can&#8217;t shake the feeling that I really ought to be doing this, and doing it well.</p>
+
+<p>So, this is my latest attempt at staking out some digital territory in the crowded, geek-o-sphere. It&#8217;s <a href="http://subakva.com">Subakva</a>, which means, for those of us who don&#8217;t speak <a href="http://lernu.net">esperanto</a>,  &#8220;underwater&#8221; (Prepare yourself for my upcoming blog entry on how to find an squatter-free domain name by learning obscure, artificial languages.)</p>
+
+<p>If you&#8217;re interested in web technology, interface design, and all that Geek 2.0 jazz, I predict that there will be something worthwhile for you to read here in the future. If you&#8217;re not interested in any of that, then there&#8217;s nothing for you here but heartache and disappointment. Go now, with your spirit still intact.</p>
+
+<p><strong>Excelsior!</strong></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/01/15/federal-reserve-bank-of-boston-taken-with-instagram/">None</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson/">Book Review: HTML5 Cookbook by Christopher Schmitt, Kyle Simpson</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media/">Book Review: A Bug Hunter&#8217;s Diary by Tobias Klein; O&#8217;Reilly Media</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media/">Book Review: Test-Driven Infrastructure with Chef by Stephen Nelson-Smith; O&#8217;Reilly Media</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/08/02/the-mother-of-all-interview-questions-raganwalds-posterous/">The Mother of All Interview Questions - raganwald&#8217;s posterous</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/subakva">@subakva</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'subakva',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("subakva", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/subakva" class="twitter-follow-button" data-show-count="false">Follow @subakva</a>
+  
+</section>
+
+
+<section>
+  <h1>My Pinboard</h1>
+  <ul id="pinboard_linkroll">Fetching linkroll&#8230;</ul>
+  <p><a href="http://pinboard.in/u:subakva">My Pinboard Bookmarks &raquo;</a></p>
+</section>
+<script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+  var pinboard_user = "subakva"; //id target for pinboard list
+  var pinboard_count = 3; //id target for pinboard list
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/javascripts/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+</script>
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Jason Wadsworth -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'subakva';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

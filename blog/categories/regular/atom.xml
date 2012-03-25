@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: regular | Subakva Teknika]]></title>
+  <link href="http://subakva.github.com/blog/categories/regular/atom.xml" rel="self"/>
+  <link href="http://subakva.github.com/"/>
+  <updated>2012-03-25T15:32:55-04:00</updated>
+  <id>http://subakva.github.com/</id>
+  <author>
+    <name><![CDATA[Jason Wadsworth]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Book Review: HTML5 Cookbook by Christopher Schmitt, Kyle Simpson]]></title>
+    <link href="http://subakva.github.com/blog/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson/"/>
+    <updated>2012-01-08T22:52:37-05:00</updated>
+    <id>http://subakva.github.com/blog/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson</id>
+    <content type="html"><![CDATA[<p><img src="http://media.tumblr.com/tumblr_lxaxd8WzPh1qzzhm0.gif" alt="" /></p>
+
+<h4>Summary</h4>
+
+<p><a href="http://shop.oreilly.com/product/0636920016038.do">HTML5 Cookbook</a> provides an overview and examples of new HTML 5 features and related JavaScript APIs. The cookbook series aims to provide short, targeted chapters that solve real world problems, and for simple use-cases, this book provides that.</p>
+
+<p>Most of the material in the book could be found in online tutorials, but it provides a good overview of the available technologies in a single place. I wouldn't recommend this for developers who are already using/familiar with HTML 5, but it could be a great foundation for newbies who want to absorb a lot quickly. Personally, I felt that I had a solid foundation to start working with HTML 5 technologies after reading through the examples.</p>
+
+<h4>In a Nutshell:</h4>
+
+<ul>
+<li><p>Good compilation of intro material for HTML 5 and friends.</p></li>
+<li><p>Filled with useful internet references.</p></li>
+<li><p>Recipes are rather basic, but complete and well-written.</p></li>
+<li><p>Great coverage of accessibility issues.</p></li>
+<li><p>Probably less useful once the basics are understood.</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Book Review: A Bug Hunter's Diary by Tobias Klein; O'Reilly Media]]></title>
+    <link href="http://subakva.github.com/blog/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media/"/>
+    <updated>2011-11-23T13:32:20-05:00</updated>
+    <id>http://subakva.github.com/blog/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media</id>
+    <content type="html"><![CDATA[<p><img src="http://media.tumblr.com/tumblr_luxtvovtYx1qzzhm0.gif" alt="" /></p>
+
+<h4>Summary</h4>
+
+<p><a href="http://shop.oreilly.com/product/9781593273859.do">A Bug Hunter's Diary</a> describes the technical details of how the author identified and analyzed software security bugs. It doesn't get into exploiting the bugs because, as the author points out at the end of every chapter, it's illegal to publish exploits in Germany.</p>
+
+<p>I expected a light treatment based on the cute title and cover, but it was mostly C code, debuggers and assembly. I was a little out of my element, but it was interesting. The appendices explaining how stack overflows, etc. can occur and how they can be exploited (roughly) were helpful and interesting. The bug diaries were a little repetitive, but they at least covered a range of platforms.</p>
+
+<h4>Other Notes</h4>
+
+<p>The book is lacking one major piece of the puzzle: details on exploiting these security bugs. After all the work understanding the bug and the details, it was always a bit of a letdown when their was no working exploit as a payoff. According to the author, his home country, Germany, passed a law making it illegal to publish exploits for bugs. Given the ease of finding that information on the internet, I'd guess that the single major effect of that law is to make this book less useful, which is a real shame.</p>
+
+<p>In addition to the technical details, the author outlines the process of reporting and resolving bugs. It was interesting to see that commercial software vendors seem to be consistently orders of magnitude slower in releasing patches for security issues. I suppose one could argue that means that open-source software is safer, but at the end of the day, it's always up to the end user to keep their software updated and patched.</p>
+
+<h4>Bottom Line</h4>
+
+<p>You'll need some understanding of assembly, c, and how memory allocation works. But that background, the book and a bit of Googling to learn more about how the exploits work make for a solid, entertaining overview of the life cycle of security bugs.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Book Review: Test-Driven Infrastructure with Chef by Stephen Nelson-Smith; O'Reilly Media]]></title>
+    <link href="http://subakva.github.com/blog/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media/"/>
+    <updated>2011-11-09T21:41:00-05:00</updated>
+    <id>http://subakva.github.com/blog/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media</id>
+    <content type="html"><![CDATA[<p><img src="http://media.tumblr.com/tumblr_lufbogviud1qzzhm0.gif" alt="" /></p>
+
+<h4>Summary</h4>
+
+<p><a href="http://shop.oreilly.com/product/0636920020042.do">Test-Driven Infrastructure with Chef</a> describes a rationale and an approach to developing automated tests for system infrastructure. It includes an explanation of behavior-driven development, and detailed instructions for setting up a testing system using <a href="https://github.com/Atalanta/cucumber-chef">cucumber-chef</a> on EC2.</p>
+
+<h4>Audience</h4>
+
+<p>Surprisingly little time was spent talking about cucumber-chef and how to use it. The majority of the book is spent explaining BDD and why you'd want to apply it to infrastructure, and then explaining in minute detail the process to get <a href="https://rvm.beginrescueend.com/">RVM</a>, <a href="http://aws.amazon.com/ec2/">EC2</a> and <a href="http://www.opscode.com/chef/">Chef</a> configured. The last portion of the book covered the process of using <a href="https://github.com/Atalanta/cucumber-chef">cucumber-chef</a> to set up a server with multiple user accounts.</p>
+
+<p>Being already familiar with the supporting tools, I found this disappointing. The teamserver example was too simple and unrealistic. It would have been more useful to see some examples using cucumber-chef for a more realistic use-case, such as setting up a web server.</p>
+
+<p>Unfortunately, I suspect the text isn't likely to be helpful to a reader who <em>isn't</em> familiar with the tools either. The instructions were already outdated when I read them, shortly after the book was released. A reader who is new to Cucumber, Chef, Ruby or EC2 will be in danger of getting lost before they even get to the point where they can run a test against an instance.</p>
+
+<h4>Practicality</h4>
+
+<p>In the course of working through the examples, I was continually frustrated by the amount of time it took to get feedback. The tests are really slow. It's hard to imagine actually developing red/green/refactor-style at this pace. I like the concept of being able to test the infrastructure, but it doesn't seem practical with these tools.</p>
+
+<p>I'm not convinced that it would really be worth the time involved to write tests at this level anyway. Writing integration tests against the full application stack might be a better use of your testing time. The true test of the infrastructure is how well it supports needs of the application and it's users.</p>
+
+<p>Neither BDD-style infrastructure tests nor full-stack integration tests will help you with the most difficult and interesting infrastructure challenges: scaling and stability. Simulating all the wonderful ways that a server can crash (used up disk space, hung connections, etc.) would be a complex, difficult, slow, and inevitably incomplete endeavor. It's possible that server ops really is fundamentally different than application development.</p>
+
+<h4>Bottom Line</h4>
+
+<ul>
+<li><p>Good explanation of BDD and how it could be applied to infrastructure</p></li>
+<li><p>Short on useful examples for readers familiar with the supporting tools</p></li>
+<li><p>Thorough instructions for setting up EC2, Chef and RVM, but likely to have a short shelf-life</p></li>
+</ul>
+
+
+<p>Available from  O'Reilly: <a href="http://shop.oreilly.com/product/0636920020042.do">Test-Driven Infrastructure with Chef</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Temporarily Change the Rails Environment]]></title>
+    <link href="http://subakva.github.com/blog/2011/03/17/temporarily-change-the-rails-environment/"/>
+    <updated>2011-03-17T14:00:29-04:00</updated>
+    <id>http://subakva.github.com/blog/2011/03/17/temporarily-change-the-rails-environment</id>
+    <content type="html"><![CDATA[<p>A helper method to change the Rails environment within a block. I use this for testing isolated, environment-specific methods. Obviously, I wouldn't suggest using this outside of test code. You could easily do something very stupid.</p>
+
+<pre><code>&lt;code&gt;
+def with_rails_env(environment, &amp;block)
+  begin
+    original_env = Rails.env
+    Rails.instance_variable_set(:@_env, environment)
+    yield if block_given?
+  ensure
+    Rails.instance_variable_set(:@_env, original_env)
+  end
+end
+&lt;/code&gt;
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ActiveRecord Join Table Gotcha]]></title>
+    <link href="http://subakva.github.com/blog/2011/03/11/activerecord-join-table-gotcha/"/>
+    <updated>2011-03-11T20:10:30-05:00</updated>
+    <id>http://subakva.github.com/blog/2011/03/11/activerecord-join-table-gotcha</id>
+    <content type="html"><![CDATA[<p>Whenever I create join tables, I'm always tempted to add an ID column, in case I want to upgrade it to a :through association at some point. I'm also tempted to timestamp columns, so that I can know when the association was created.</p>
+
+<p>Sadly, it just doesn't work with <code>has_and_belongs_to_many</code>.</p>
+
+<ul>
+<li><p>If you add an ID column, Rails will choke as soon as you try to access it. IDs are not allowed!</p></li>
+<li><p>If you add timestamps, Rails will make all of your association records readonly.</p></li>
+</ul>
+
+
+<p>If you want to have an ID and timestamps, you'll just have to bite the bullet and create an association model and a <code>has_many :through</code> relationship.</p>
+
+<p>Maybe now that I've written about it, I'll remember it next time and save myself debugging mysterious <code>"ActiveRecord::ReadOnlyRecord: ActiveRecord::ReadOnlyRecord"</code> errors.</p>
+]]></content>
+  </entry>
+  
+</feed>
