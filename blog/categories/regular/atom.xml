@@ -4,7 +4,7 @@
   <title><![CDATA[Category: regular | Subakva Teknika]]></title>
   <link href="http://subakva.github.com/blog/categories/regular/atom.xml" rel="self"/>
   <link href="http://subakva.github.com/"/>
-  <updated>2012-03-26T19:34:14-04:00</updated>
+  <updated>2012-03-26T19:36:15-04:00</updated>
   <id>http://subakva.github.com/</id>
   <author>
     <name><![CDATA[Jason Wadsworth]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Book Review: HTML5 Cookbook by Christopher Schmitt, Kyle Simpson]]></title>
-    <link href="http://subakva.github.com/blog/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson/"/>
+    <link href="http://subakva.github.com/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson/"/>
     <updated>2012-01-08T22:52:37-05:00</updated>
-    <id>http://subakva.github.com/blog/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson</id>
+    <id>http://subakva.github.com/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson</id>
     <content type="html"><![CDATA[<p><img src="http://media.tumblr.com/tumblr_lxaxd8WzPh1qzzhm0.gif" alt="" /></p>
 
 <h4>Summary</h4>
@@ -41,9 +41,9 @@
   
   <entry>
     <title type="html"><![CDATA[Book Review: A Bug Hunter's Diary by Tobias Klein; O'Reilly Media]]></title>
-    <link href="http://subakva.github.com/blog/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media/"/>
+    <link href="http://subakva.github.com/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media/"/>
     <updated>2011-11-23T13:32:20-05:00</updated>
-    <id>http://subakva.github.com/blog/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media</id>
+    <id>http://subakva.github.com/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media</id>
     <content type="html"><![CDATA[<p><img src="http://media.tumblr.com/tumblr_luxtvovtYx1qzzhm0.gif" alt="" /></p>
 
 <h4>Summary</h4>
@@ -66,9 +66,9 @@
   
   <entry>
     <title type="html"><![CDATA[Book Review: Test-Driven Infrastructure with Chef by Stephen Nelson-Smith; O'Reilly Media]]></title>
-    <link href="http://subakva.github.com/blog/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media/"/>
+    <link href="http://subakva.github.com/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media/"/>
     <updated>2011-11-09T21:41:00-05:00</updated>
-    <id>http://subakva.github.com/blog/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media</id>
+    <id>http://subakva.github.com/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media</id>
     <content type="html"><![CDATA[<p><img src="http://media.tumblr.com/tumblr_lufbogviud1qzzhm0.gif" alt="" /></p>
 
 <h4>Summary</h4>
@@ -106,9 +106,9 @@
   
   <entry>
     <title type="html"><![CDATA[Temporarily Change the Rails Environment]]></title>
-    <link href="http://subakva.github.com/blog/2011/03/17/temporarily-change-the-rails-environment/"/>
+    <link href="http://subakva.github.com/2011/03/17/temporarily-change-the-rails-environment/"/>
     <updated>2011-03-17T14:00:29-04:00</updated>
-    <id>http://subakva.github.com/blog/2011/03/17/temporarily-change-the-rails-environment</id>
+    <id>http://subakva.github.com/2011/03/17/temporarily-change-the-rails-environment</id>
     <content type="html"><![CDATA[<p>A helper method to change the Rails environment within a block. I use this for testing isolated, environment-specific methods. Obviously, I wouldn't suggest using this outside of test code. You could easily do something very stupid.</p>
 
 <pre><code>&lt;code&gt;
@@ -128,9 +128,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[ActiveRecord Join Table Gotcha]]></title>
-    <link href="http://subakva.github.com/blog/2011/03/11/activerecord-join-table-gotcha/"/>
+    <link href="http://subakva.github.com/2011/03/11/activerecord-join-table-gotcha/"/>
     <updated>2011-03-11T20:10:30-05:00</updated>
-    <id>http://subakva.github.com/blog/2011/03/11/activerecord-join-table-gotcha</id>
+    <id>http://subakva.github.com/2011/03/11/activerecord-join-table-gotcha</id>
     <content type="html"><![CDATA[<p>Whenever I create join tables, I'm always tempted to add an ID column, in case I want to upgrade it to a :through association at some point. I'm also tempted to timestamp columns, so that I can know when the association was created.</p>
 
 <p>Sadly, it just doesn't work with <code>has_and_belongs_to_many</code>.</p>

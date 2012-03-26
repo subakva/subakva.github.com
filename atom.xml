@@ -4,7 +4,7 @@
   <title><![CDATA[Subakva Teknika]]></title>
   <link href="http://subakva.github.com/atom.xml" rel="self"/>
   <link href="http://subakva.github.com/"/>
-  <updated>2012-03-26T19:34:14-04:00</updated>
+  <updated>2012-03-26T19:36:15-04:00</updated>
   <id>http://subakva.github.com/</id>
   <author>
     <name><![CDATA[Jason Wadsworth]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[None]]></title>
-    <link href="http://subakva.github.com/blog/2012/01/15/federal-reserve-bank-of-boston-taken-with-instagram/"/>
+    <link href="http://subakva.github.com/2012/01/15/federal-reserve-bank-of-boston-taken-with-instagram/"/>
     <updated>2012-01-15T09:24:59-05:00</updated>
-    <id>http://subakva.github.com/blog/2012/01/15/federal-reserve-bank-of-boston-taken-with-instagram</id>
+    <id>http://subakva.github.com/2012/01/15/federal-reserve-bank-of-boston-taken-with-instagram</id>
     <content type="html"><![CDATA[<p><img src="http://www.tumblr.com/photo/1280/subakva/15884659363/1/tumblr_lxug1nl7Xr1qzbsqk" alt="" /></p>
 
 <p>Federal Reserve Bank of Boston (Taken with <a href="http://instagr.am">instagram</a>)</p>
@@ -26,9 +26,9 @@
   
   <entry>
     <title type="html"><![CDATA[Book Review: HTML5 Cookbook by Christopher Schmitt, Kyle Simpson]]></title>
-    <link href="http://subakva.github.com/blog/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson/"/>
+    <link href="http://subakva.github.com/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson/"/>
     <updated>2012-01-08T22:52:37-05:00</updated>
-    <id>http://subakva.github.com/blog/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson</id>
+    <id>http://subakva.github.com/2012/01/08/book-review-html5-cookbook-by-christopher-schmitt-kyle-simpson</id>
     <content type="html"><![CDATA[<p><img src="http://media.tumblr.com/tumblr_lxaxd8WzPh1qzzhm0.gif" alt="" /></p>
 
 <h4>Summary</h4>
@@ -52,9 +52,9 @@
   
   <entry>
     <title type="html"><![CDATA[Book Review: A Bug Hunter's Diary by Tobias Klein; O'Reilly Media]]></title>
-    <link href="http://subakva.github.com/blog/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media/"/>
+    <link href="http://subakva.github.com/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media/"/>
     <updated>2011-11-23T13:32:20-05:00</updated>
-    <id>http://subakva.github.com/blog/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media</id>
+    <id>http://subakva.github.com/2011/11/23/book-review-a-bug-hunters-diary-by-tobias-klein-oreilly-media</id>
     <content type="html"><![CDATA[<p><img src="http://media.tumblr.com/tumblr_luxtvovtYx1qzzhm0.gif" alt="" /></p>
 
 <h4>Summary</h4>
@@ -77,9 +77,9 @@
   
   <entry>
     <title type="html"><![CDATA[Book Review: Test-Driven Infrastructure with Chef by Stephen Nelson-Smith; O'Reilly Media]]></title>
-    <link href="http://subakva.github.com/blog/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media/"/>
+    <link href="http://subakva.github.com/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media/"/>
     <updated>2011-11-09T21:41:00-05:00</updated>
-    <id>http://subakva.github.com/blog/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media</id>
+    <id>http://subakva.github.com/2011/11/09/book-review-test-driven-infrastructure-with-chef-by-stephen-nelson-smith-oreilly-media</id>
     <content type="html"><![CDATA[<p><img src="http://media.tumblr.com/tumblr_lufbogviud1qzzhm0.gif" alt="" /></p>
 
 <h4>Summary</h4>
@@ -117,9 +117,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Mother of All Interview Questions - raganwald's posterous]]></title>
-    <link href="http://subakva.github.com/blog/2011/08/02/the-mother-of-all-interview-questions-raganwalds-posterous/"/>
+    <link href="http://subakva.github.com/2011/08/02/the-mother-of-all-interview-questions-raganwalds-posterous/"/>
     <updated>2011-08-02T14:43:29-04:00</updated>
-    <id>http://subakva.github.com/blog/2011/08/02/the-mother-of-all-interview-questions-raganwalds-posterous</id>
+    <id>http://subakva.github.com/2011/08/02/the-mother-of-all-interview-questions-raganwalds-posterous</id>
     <content type="html"><![CDATA[<p><a href="http://raganwald.posterous.com/the-mother-of-all-interview-questions">The Mother of All Interview Questions - raganwald&#8217;s posterous</a></p>
 
 <p>&#8220;Does your process involve invention? … &#8221; This is a great interview question. It&#8217;s a conversation starter, and it&#8217;s both relevant to evaluating a candidate and, hopefully, an interesting question for the interviewee to consider.</p>
@@ -128,9 +128,9 @@
   
   <entry>
     <title type="html"><![CDATA[Making applications scalable with Load Balancing]]></title>
-    <link href="http://subakva.github.com/blog/2011/07/29/making-applications-scalable-with-load-balancing/"/>
+    <link href="http://subakva.github.com/2011/07/29/making-applications-scalable-with-load-balancing/"/>
     <updated>2011-07-29T09:32:03-04:00</updated>
-    <id>http://subakva.github.com/blog/2011/07/29/making-applications-scalable-with-load-balancing</id>
+    <id>http://subakva.github.com/2011/07/29/making-applications-scalable-with-load-balancing</id>
     <content type="html"><![CDATA[<p><a href="http://1wt.eu/articles/2006_lb/">Making applications scalable with Load Balancing</a></p>
 
 <p>Old but useful article about load balancing issues by the author of HAProxy</p>
@@ -139,9 +139,9 @@
   
   <entry>
     <title type="html"><![CDATA[Jay Fields' Thoughts: The High-Level Test Whisperer]]></title>
-    <link href="http://subakva.github.com/blog/2011/07/22/jay-fields-thoughts-the-high-level-test-whisperer/"/>
+    <link href="http://subakva.github.com/2011/07/22/jay-fields-thoughts-the-high-level-test-whisperer/"/>
     <updated>2011-07-22T09:57:19-04:00</updated>
-    <id>http://subakva.github.com/blog/2011/07/22/jay-fields-thoughts-the-high-level-test-whisperer</id>
+    <id>http://subakva.github.com/2011/07/22/jay-fields-thoughts-the-high-level-test-whisperer</id>
     <content type="html"><![CDATA[<p><a href="http://blog.jayfields.com/2011/07/high-level-test-whisperer.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed:%20jayfields/mjKQ%20(Jay%20Fields%20Thoughts">Jay Fields&#8217; Thoughts: The High-Level Test Whisperer</a>)</p>
 
 <p>Two key takeaways from this post:</p>
@@ -156,9 +156,9 @@
   
   <entry>
     <title type="html"><![CDATA[Temporarily Change the Rails Environment]]></title>
-    <link href="http://subakva.github.com/blog/2011/03/17/temporarily-change-the-rails-environment/"/>
+    <link href="http://subakva.github.com/2011/03/17/temporarily-change-the-rails-environment/"/>
     <updated>2011-03-17T14:00:29-04:00</updated>
-    <id>http://subakva.github.com/blog/2011/03/17/temporarily-change-the-rails-environment</id>
+    <id>http://subakva.github.com/2011/03/17/temporarily-change-the-rails-environment</id>
     <content type="html"><![CDATA[<p>A helper method to change the Rails environment within a block. I use this for testing isolated, environment-specific methods. Obviously, I wouldn&#8217;t suggest using this outside of test code. You could easily do something very stupid.</p>
 
 <pre><code>&lt;code&gt;
@@ -178,9 +178,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[Shady Characters - The secret life of punctuation]]></title>
-    <link href="http://subakva.github.com/blog/2011/03/12/shady-characters-the-secret-life-of-punctuation/"/>
+    <link href="http://subakva.github.com/2011/03/12/shady-characters-the-secret-life-of-punctuation/"/>
     <updated>2011-03-12T14:57:48-05:00</updated>
-    <id>http://subakva.github.com/blog/2011/03/12/shady-characters-the-secret-life-of-punctuation</id>
+    <id>http://subakva.github.com/2011/03/12/shady-characters-the-secret-life-of-punctuation</id>
     <content type="html"><![CDATA[<p><a href="http://www.shadycharacters.co.uk/2010/12/hello-world/">Shady Characters - The secret life of punctuation</a></p>
 
 <p>Proving once again the breadth of my geekdom, I&#8217;m really enjoying this blog about the history of punctuation.</p>
@@ -189,9 +189,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[ActiveRecord Join Table Gotcha]]></title>
-    <link href="http://subakva.github.com/blog/2011/03/11/activerecord-join-table-gotcha/"/>
+    <link href="http://subakva.github.com/2011/03/11/activerecord-join-table-gotcha/"/>
     <updated>2011-03-11T20:10:30-05:00</updated>
-    <id>http://subakva.github.com/blog/2011/03/11/activerecord-join-table-gotcha</id>
+    <id>http://subakva.github.com/2011/03/11/activerecord-join-table-gotcha</id>
     <content type="html"><![CDATA[<p>Whenever I create join tables, I&#8217;m always tempted to add an ID column, in case I want to upgrade it to a :through association at some point. I&#8217;m also tempted to timestamp columns, so that I can know when the association was created.</p>
 
 <p>Sadly, it just doesn&#8217;t work with <code>has_and_belongs_to_many</code>.</p>
@@ -210,9 +210,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[MySQL Mass Destruction with xargs]]></title>
-    <link href="http://subakva.github.com/blog/2011/02/15/mysql-mass-destruction-with-xargs/"/>
+    <link href="http://subakva.github.com/2011/02/15/mysql-mass-destruction-with-xargs/"/>
     <updated>2011-02-15T22:02:52-05:00</updated>
-    <id>http://subakva.github.com/blog/2011/02/15/mysql-mass-destruction-with-xargs</id>
+    <id>http://subakva.github.com/2011/02/15/mysql-mass-destruction-with-xargs</id>
     <content type="html"><![CDATA[<p>Yesterday, I needed to clobber a bunch of similarly-named database schemas on my development machine. I could have selected and deleted 40 times in Navicat, but I thought I&#8217;d try to write a one-liner instead:</p>
 
 <p>`</p>
@@ -231,9 +231,9 @@ _</p>
   
   <entry>
     <title type="html"><![CDATA[ShareableRouteSet - Gist]]></title>
-    <link href="http://subakva.github.com/blog/2010/09/01/shareablerouteset-gist/"/>
+    <link href="http://subakva.github.com/2010/09/01/shareablerouteset-gist/"/>
     <updated>2010-09-01T11:24:02-04:00</updated>
-    <id>http://subakva.github.com/blog/2010/09/01/shareablerouteset-gist</id>
+    <id>http://subakva.github.com/2010/09/01/shareablerouteset-gist</id>
     <content type="html"><![CDATA[<p><a href="http://gist.github.com/556374">ShareableRouteSet - Gist</a></p>
 
 <p>This is a class to allow the creation of Rails route helpers for external applications without interfering with the application routes.</p>
@@ -244,9 +244,9 @@ _</p>
   
   <entry>
     <title type="html"><![CDATA[Find and Concatenate Files with Spaces]]></title>
-    <link href="http://subakva.github.com/blog/2010/09/01/find-and-concatenate-files-with-spaces/"/>
+    <link href="http://subakva.github.com/2010/09/01/find-and-concatenate-files-with-spaces/"/>
     <updated>2010-09-01T11:19:45-04:00</updated>
-    <id>http://subakva.github.com/blog/2010/09/01/find-and-concatenate-files-with-spaces</id>
+    <id>http://subakva.github.com/2010/09/01/find-and-concatenate-files-with-spaces</id>
     <content type="html"><![CDATA[<p>Normally, xargs will interpret the spaces in the filenames as separate files. The <code>-print0</code> argument to find paired with the <code>-0</code> argument to xargs will use some other magical delimiter so that the spacey filenames remain intact as you pipe them around.</p>
 
 <p>`</p>
@@ -258,9 +258,9 @@ _</p>
   
   <entry>
     <title type="html"><![CDATA[Bulk Update Github Hooks]]></title>
-    <link href="http://subakva.github.com/blog/2010/04/22/bulk-update-github-hooks/"/>
+    <link href="http://subakva.github.com/2010/04/22/bulk-update-github-hooks/"/>
     <updated>2010-04-22T14:39:11-04:00</updated>
-    <id>http://subakva.github.com/blog/2010/04/22/bulk-update-github-hooks</id>
+    <id>http://subakva.github.com/2010/04/22/bulk-update-github-hooks</id>
     <content type="html"><![CDATA[<p>The Github API doesn&#8217;t support updating hooks, but I&#8217;ve got way too many projects going to do it by hand. I wrote up this script to update all of my hooks at once. I used the <a href="http://mechanize.rubyforge.org/mechanize/">mechanize</a> gem to drive the web admin interface for the hooks that I needed.</p>
 
 <p>The gist with the code is here: <a href="http://gist.github.com/375621">[http://gist.github.com/375621](http://gist.github.com/375621)</a></p>
@@ -269,9 +269,9 @@ _</p>
   
   <entry>
     <title type="html"><![CDATA[Remove an Environment Variable in Bash]]></title>
-    <link href="http://subakva.github.com/blog/2009/11/25/remove-an-environment-variable-in-bash/"/>
+    <link href="http://subakva.github.com/2009/11/25/remove-an-environment-variable-in-bash/"/>
     <updated>2009-11-25T01:13:27-05:00</updated>
-    <id>http://subakva.github.com/blog/2009/11/25/remove-an-environment-variable-in-bash</id>
+    <id>http://subakva.github.com/2009/11/25/remove-an-environment-variable-in-bash</id>
     <content type="html"><![CDATA[<p><code>export -n RAILS_ENV</code></p>
 
 <p>Setting an environment variable to nothing is not the same as removing it entirely. If really need it to go away completely, use the <code>-n</code> flag on <code>export</code>.</p>
@@ -296,9 +296,9 @@ jason@idaho:~/Code/subakva$
   
   <entry>
     <title type="html"><![CDATA[RunCodeRun]]></title>
-    <link href="http://subakva.github.com/blog/2009/11/15/runcoderun/"/>
+    <link href="http://subakva.github.com/2009/11/15/runcoderun/"/>
     <updated>2009-11-15T11:57:08-05:00</updated>
-    <id>http://subakva.github.com/blog/2009/11/15/runcoderun</id>
+    <id>http://subakva.github.com/2009/11/15/runcoderun</id>
     <content type="html"><![CDATA[<p>For a personal project, I&#8217;m trying out <a href="http://runcoderun.com">RunCodeRun</a>, a service for doing automated builds for projects on <a href="http://github.com">github</a>.</p>
 
 <p>I think the idea is a good one. For gems or simple web apps without complicated integration tests, getting an automated build up and running is dead simple. It&#8217;s just a matter of adding a post-commit hook to your github project to notify runcoderun that the code has been updated.</p>
@@ -313,9 +313,9 @@ jason@idaho:~/Code/subakva$
   
   <entry>
     <title type="html"><![CDATA[Git Cannot Merge? Try committing first.]]></title>
-    <link href="http://subakva.github.com/blog/2009/05/29/git-cannot-merge-try-committing-first/"/>
+    <link href="http://subakva.github.com/2009/05/29/git-cannot-merge-try-committing-first/"/>
     <updated>2009-05-29T18:05:03-04:00</updated>
-    <id>http://subakva.github.com/blog/2009/05/29/git-cannot-merge-try-committing-first</id>
+    <id>http://subakva.github.com/2009/05/29/git-cannot-merge-try-committing-first</id>
     <content type="html"><![CDATA[<p>I ran into this git error again today:</p>
 
 <pre><code>&lt;code&gt;
@@ -329,18 +329,18 @@ Entry 'blah/blah.rb' would be overwritten by merge. Cannot merge.
   
   <entry>
     <title type="html"><![CDATA[Sunlight Labs: Blog - Apps for America 2: The Data.gov Challenge]]></title>
-    <link href="http://subakva.github.com/blog/2009/05/21/sunlight-labs-blog-apps-for-america-2-the-datagov-challenge/"/>
+    <link href="http://subakva.github.com/2009/05/21/sunlight-labs-blog-apps-for-america-2-the-datagov-challenge/"/>
     <updated>2009-05-21T18:51:32-04:00</updated>
-    <id>http://subakva.github.com/blog/2009/05/21/sunlight-labs-blog-apps-for-america-2-the-datagov-challenge</id>
+    <id>http://subakva.github.com/2009/05/21/sunlight-labs-blog-apps-for-america-2-the-datagov-challenge</id>
     <content type="html"><![CDATA[<p><a href="http://sunlightlabs.com/blog/2009/05/21/apps-america-2-datagov-challenge/">Sunlight Labs: Blog - Apps for America 2: The Data.gov Challenge</a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[URI.join v. File.join]]></title>
-    <link href="http://subakva.github.com/blog/2009/05/15/urijoin-v-filejoin/"/>
+    <link href="http://subakva.github.com/2009/05/15/urijoin-v-filejoin/"/>
     <updated>2009-05-15T19:12:00-04:00</updated>
-    <id>http://subakva.github.com/blog/2009/05/15/urijoin-v-filejoin</id>
+    <id>http://subakva.github.com/2009/05/15/urijoin-v-filejoin</id>
     <content type="html"><![CDATA[<p><code>URI.join</code> does not work quite the same way as <code>File.join</code> in Ruby. The aim of <code>URI.join</code> is more to calculate a relative path (as a browser would) than to simply concatenate path elements cleanly. The irb output below demonstrates this:</p>
 
 <p>`</p>
@@ -359,9 +359,9 @@ irb&gt; URI.join(host, prefix+ '/', file).to_s #=&gt; "http://www.example.com/pr
   
   <entry>
     <title type="html"><![CDATA[Sinatra Hacking at RailsConf]]></title>
-    <link href="http://subakva.github.com/blog/2009/05/08/sinatra-hacking-at-railsconf/"/>
+    <link href="http://subakva.github.com/2009/05/08/sinatra-hacking-at-railsconf/"/>
     <updated>2009-05-08T16:21:33-04:00</updated>
-    <id>http://subakva.github.com/blog/2009/05/08/sinatra-hacking-at-railsconf</id>
+    <id>http://subakva.github.com/2009/05/08/sinatra-hacking-at-railsconf</id>
     <content type="html"><![CDATA[<p>I played around with <a href="http://www.sinatrarb.com/">Sinatra</a> a bit at RailsConf and there&#8217;s a tiny spec of open source code to show for it:</p>
 
 <ul>
